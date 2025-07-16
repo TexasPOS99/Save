@@ -1,0 +1,13 @@
+{
+  "name": "email-customer-system",
+  "version": "1.0.0",
+  "description": "ระบบตรวจสอบอีเมลลูกค้า",
+  "main": "index.html",
+  "scripts": {
+    "dev": "python3 -m http.server 3000",
+    "start": "python3 -m http.server 3000"
+  },
+  "keywords": ["email", "customer", "management"],
+  "author": "",
+  "license": "MIT"
+}

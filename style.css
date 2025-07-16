@@ -119,62 +119,80 @@ label {
 table {
     width: 100%;
     border-collapse: collapse;
-    font-size: 13px;
+    font-size: 14px;
+    border-radius: 12px;
+    overflow: hidden;
 }
 
 th {
     background: linear-gradient(135deg, #667eea, #764ba2);
     color: white;
-    padding: 12px 6px;
+    padding: 16px 8px;
     text-align: center;
     font-weight: 600;
-    font-size: 12px;
+    font-size: 13px;
     position: sticky;
     top: 0;
     z-index: 10;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.1);
 }
 
 td {
-    padding: 10px 6px;
+    padding: 14px 8px;
     text-align: center;
-    border-bottom: 1px solid #e2e8f0;
-    font-size: 12px;
+    border-bottom: 1px solid #f1f5f9;
+    font-size: 13px;
     vertical-align: middle;
+    background: white;
+    transition: all 0.2s ease;
 }
 
 tr:hover {
-    background: #f7fafc;
+    background: #f8fafc !important;
+}
+
+tr:hover td {
+    background: #f8fafc;
 }
 
 .email-cell {
     font-weight: 600;
     color: #667eea;
-    font-size: 13px;
-    max-width: 80px;
+    font-size: 14px;
+    max-width: 90px;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+    padding: 14px 10px;
 }
 
 .date-cell {
     color: #718096;
     font-weight: 500;
-    font-size: 11px;
-    max-width: 60px;
+    font-size: 12px;
+    max-width: 70px;
+    padding: 14px 6px;
 }
 
 .status-toggle {
     background: none;
     border: none;
-    font-size: 18px;
+    font-size: 20px;
     cursor: pointer;
-    padding: 3px;
+    padding: 6px;
     border-radius: 8px;
     transition: all 0.2s ease;
+    min-width: 40px;
+    min-height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
 }
 
 .status-toggle:hover {
-    background: #f7fafc;
+    background: #edf2f7;
+    transform: scale(1.1);
 }
 
 .status-toggle.active {
@@ -187,7 +205,7 @@ tr:hover {
 
 .apps-cell {
     cursor: pointer;
-    padding: 6px 4px;
+    padding: 10px 6px;
     border-radius: 8px;
     transition: all 0.2s ease;
     min-height: 35px;
@@ -195,6 +213,7 @@ tr:hover {
     align-items: center;
     justify-content: center;
     max-width: 90px;
+    position: relative;
 }
 
 .apps-cell:hover {
@@ -205,7 +224,7 @@ tr:hover {
     display: flex;
     flex-direction: column;
     gap: 2px;
-    font-size: 10px;
+    font-size: 11px;
 }
 
 .app-status-item {
@@ -219,7 +238,7 @@ tr:hover {
 
 .notes-input {
     width: 100%;
-    border: 1px solid #e2e8f0;
+    border: 2px solid #e2e8f0;
     border-radius: 8px;
     padding: 6px;
     font-size: 12px;
@@ -233,6 +252,36 @@ tr:hover {
     outline: none;
     border-color: #667eea;
     box-shadow: 0 0 0 2px rgba(102, 126, 234, 0.1);
+}
+
+.delete-btn {
+    background: linear-gradient(135deg, #f56565, #e53e3e);
+    color: white;
+    border: none;
+    padding: 6px 8px;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(245, 101, 101, 0.3);
+    min-width: 36px;
+    min-height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.delete-btn:hover {
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: 0 4px 12px rgba(245, 101, 101, 0.4);
+}
+
+.delete-btn:active {
+    transform: translateY(0) scale(0.95);
+}
+
+.manage-cell {
+    padding: 10px 6px;
 }
 
 .action-buttons {
@@ -474,7 +523,7 @@ tr:hover {
     
     .email-cell {
         font-size: 12px;
-        max-width: 70px;
+        max-width: 75px;
     }
     
     .date-cell {
@@ -489,6 +538,17 @@ tr:hover {
     .notes-input {
         font-size: 11px;
         min-height: 30px;
+    }
+    
+    .delete-btn {
+        padding: 4px 6px;
+        font-size: 14px;
+        min-width: 32px;
+        min-height: 32px;
+    }
+    
+    th, td {
+        padding: 12px 4px;
     }
     
     .modal-content {

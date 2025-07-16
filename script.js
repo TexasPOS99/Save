@@ -102,7 +102,7 @@ class EmailCustomerSystem {
         if (this.emails.length === 0) {
             tbody.innerHTML = `
                 <tr>
-                    <td colspan="5" class="empty-state">
+                    <td colspan="6" class="empty-state">
                         <div class="empty-state-icon">📧</div>
                         <div class="empty-state-text">ยังไม่มีข้อมูลอีเมล<br>เพิ่มอีเมลแรกของคุณเลย!</div>
                     </td>
@@ -128,6 +128,11 @@ class EmailCustomerSystem {
                     <textarea class="notes-input" 
                               placeholder="หมายเหตุ..."
                               onchange="emailSystem.updateNotes(${email.id}, this.value)">${email.notes}</textarea>
+                </td>
+                <td class="manage-cell">
+                    <button class="delete-btn" onclick="emailSystem.deleteEmail(${email.id})" title="ลบรายการนี้">
+                        🗑️
+                    </button>
                 </td>
             </tr>
         `).join('');
@@ -226,6 +231,15 @@ class EmailCustomerSystem {
         if (email) {
             email.notes = notes;
             this.saveToStorage();
+        }
+    }
+
+    deleteEmail(emailId) {
+        const email = this.emails.find(e => e.id === emailId);
+        if (email && confirm(`คุณต้องการลบอีเมล "${email.email.replace('@gmail.com', '')}" หรือไม่?`)) {
+            this.emails = this.emails.filter(e => e.id !== emailId);
+            this.saveToStorage();
+            this.renderTable();
         }
     }
 

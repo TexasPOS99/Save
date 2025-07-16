@@ -19,6 +19,11 @@ class EmailCustomerSystem {
             }
         });
 
+        // Save button
+        document.getElementById('saveBtn').addEventListener('click', () => {
+            this.saveData();
+        });
+
         // Clear all button
         document.getElementById('clearAllBtn').addEventListener('click', () => {
             this.clearAll();
@@ -108,7 +113,7 @@ class EmailCustomerSystem {
 
         tbody.innerHTML = this.emails.map(email => `
             <tr>
-                <td class="email-cell">${email.email}</td>
+                <td class="email-cell">${email.email.replace('@gmail.com', '')}</td>
                 <td class="date-cell">${email.date}</td>
                 <td>
                     <button class="status-toggle ${email.status ? 'status-active' : 'status-inactive'}" 
@@ -222,6 +227,18 @@ class EmailCustomerSystem {
             email.notes = notes;
             this.saveToStorage();
         }
+    }
+
+    saveData() {
+        // Data is already saved automatically, just show confirmation
+        const originalText = document.getElementById('saveBtn').textContent;
+        document.getElementById('saveBtn').textContent = '✅ บันทึกแล้ว';
+        document.getElementById('saveBtn').style.background = 'linear-gradient(135deg, #48bb78, #38a169)';
+        
+        setTimeout(() => {
+            document.getElementById('saveBtn').textContent = originalText;
+            document.getElementById('saveBtn').style.background = 'linear-gradient(135deg, #4299e1, #3182ce)';
+        }, 2000);
     }
 
     clearAll() {

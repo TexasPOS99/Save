@@ -2,7 +2,8 @@
 <html lang="th">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <title>ระบบตรวจสอบอีเมลลูกค้า</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ระบบตรวจสอบอีเมลลูกค้า</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -13,13 +14,15 @@
             <div class="input-group">
                 <label for="emailSuffix">ส่วนท้ายของอีเมล:</label>
                 <div class="email-preview">
-                    <span class="email-prefix">normalshop</span> <input type="text" id="emailSuffix" placeholder="เช่น f1, a2, z10">
+                    <span class="email-prefix">normalshop</span>
+                    <input type="text" id="emailSuffix" placeholder="เช่น f1, a2, z10">
                     <span class="email-domain">@gmail.com</span>
                 </div>
             </div>
-            <button id="addEmailBtn" class="add-btn">➕ เพิ่มอีเมล</button> </div>
+            <button id="addEmailBtn" class="add-btn">➕ เพิ่มอีเมล</button>
+        </div>
 
-        <div id="data-container" class="data-container">
+        <div id="email-list-container" class="email-list-container">
             </div>
         <div class="action-buttons">
             <button id="saveBtn" class="save-btn">💾 บันทึกข้อมูล</button>
@@ -30,41 +33,53 @@
     <div id="appModal" class="modal">
         <div class="modal-content">
             <div class="modal-header">
-                <h3>เลือกแอปที่ลงทะเบียน</h3> <span class="close">&times;</span>
+                <h3>เลือกแอปที่ลงทะเบียน</h3>
+                <span class="close">&times;</span>
             </div>
             <div class="modal-body">
                 <div class="app-list">
                     <div class="app-item">
-                        <span class="app-name">Shopee</span> <select class="app-status" data-app="shopee">
+                        <span class="app-name">Shopee</span>
+                        <select class="app-status" data-app="shopee">
                             <option value="⚪️">⚪️ ยังไม่ได้ใช้</option>
                             <option value="✅">✅ ใช้งานแล้ว</option>
-                            <option value="❌">❌ ใช้แล้วแต่ไม่ผ่าน</option> </select>
-                    </div>
-                    <div class="app-item">
-                        <span class="app-name">Lazada</span> <select class="app-status" data-app="lazada">
-                            <option value="⚪️">⚪️ ยังไม่ได้ใช้</option>
-                            <option value="✅">✅ ใช้งานแล้ว</option> <option value="❌">❌ ใช้แล้วแต่ไม่ผ่าน</option>
+                            <option value="❌">❌ ใช้แล้วแต่ไม่ผ่าน</option>
                         </select>
                     </div>
                     <div class="app-item">
-                        <span class="app-name">Tiktok</span> <select class="app-status" data-app="tiktok">
+                        <span class="app-name">Lazada</span>
+                        <select class="app-status" data-app="lazada">
                             <option value="⚪️">⚪️ ยังไม่ได้ใช้</option>
-                            <option value="✅">✅ ใช้งานแล้ว</option> <option value="❌">❌ ใช้แล้วแต่ไม่ผ่าน</option>
+                            <option value="✅">✅ ใช้งานแล้ว</option>
+                            <option value="❌">❌ ใช้แล้วแต่ไม่ผ่าน</option>
                         </select>
                     </div>
-                    <div class="app-item"> <span class="app-name">ChatGPT</span>
+                    <div class="app-item">
+                        <span class="app-name">Tiktok</span>
+                        <select class="app-status" data-app="tiktok">
+                            <option value="⚪️">⚪️ ยังไม่ได้ใช้</option>
+                            <option value="✅">✅ ใช้งานแล้ว</option>
+                            <option value="❌">❌ ใช้แล้วแต่ไม่ผ่าน</option>
+                        </select>
+                    </div>
+                    <div class="app-item">
+                        <span class="app-name">ChatGPT</span>
                         <select class="app-status" data-app="chatgpt">
                             <option value="⚪️">⚪️ ยังไม่ได้ใช้</option>
-                            <option value="✅">✅ ใช้งานแล้ว</option> <option value="❌">❌ ใช้แล้วแต่ไม่ผ่าน</option>
+                            <option value="✅">✅ ใช้งานแล้ว</option>
+                            <option value="❌">❌ ใช้แล้วแต่ไม่ผ่าน</option>
                         </select>
                     </div>
-                    <div class="app-item"> <span class="app-name">Gemini</span>
+                    <div class="app-item">
+                        <span class="app-name">Gemini</span>
                         <select class="app-status" data-app="gemini">
                             <option value="⚪️">⚪️ ยังไม่ได้ใช้</option>
-                            <option value="✅">✅ ใช้งานแล้ว</option> <option value="❌">❌ ใช้แล้วแต่ไม่ผ่าน</option>
+                            <option value="✅">✅ ใช้งานแล้ว</option>
+                            <option value="❌">❌ ใช้แล้วแต่ไม่ผ่าน</option>
                         </select>
                     </div>
-                 </div> </div>
+                 </div>
+            </div>
             <div class="modal-footer">
                 <button id="saveAppsBtn" class="save-btn">บันทึก</button>
             </div>
